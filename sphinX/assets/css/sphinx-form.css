@@ -1,0 +1,47 @@
+form.sphinx-form{
+
+}
+
+form.sphinx-form label{
+	display: block;
+	margin: 0;
+	width: 29%;
+	float: left;
+	vertical-align: middle;
+}
+
+form.sphinx-form label.error{
+	color:red;
+}
+
+form.sphinx-form label span.require{
+	color: red;
+}
+
+form.sphinx-form input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea {
+  padding: 0.375em;
+  width: 100%;
+}
+
+form.sphinx-form fieldset {
+  margin: 0 0 1em;
+  padding: 0 0 1em;
+  line-height: 2em;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  zoom: 1;
+}
+
+form.sphinx-form fieldset div.field {
+  width: 70%;
+  float: right;
+  vertical-align: middle;
+}
+
+form.sphinx-form fieldset small.description {
+  opacity: .75;
+  font-size: .83em;
+  margin: 1.2em 0 0;
+  display: block;
+  line-height: 1.2em;
+}

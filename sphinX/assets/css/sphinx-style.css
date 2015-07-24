@@ -1,0 +1,52 @@
+ul.sphinx-notice-list{
+	list-style: disc;
+	padding: 1em 1em 1em 2.5em;
+	margin: 0 0 2em;
+	position: relative;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	background: #fff;
+	background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#fff));
+	background: -webkit-linear-gradient(#fff,#fff);
+	background: -moz-linear-gradient(center top,#fff 0,#fff 100%);
+	background: -moz-gradient(center top,#fff 0,#fff 100%);
+	color: #666;
+	text-shadow: 0 1px 0 #fff;
+	zoom: 1;
+	width: auto;
+	box-shadow: inset 0 -2px 6px rgba(0,0,0,.05),inset 0 -2px 30px rgba(0,0,0,.015),inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,.3);
+}
+ul.sphinx-error{
+	border-top: 3px solid #b81c23;
+}
+ul.sphinx-info{
+	border-top: 3px solid #1C83B8;
+}
+ul.sphinx-success{
+	border-top: 3px solid #49B525;
+}
+.sphinx-notice-list li{
+
+	padding: .2em 0;
+}
+
+.sX-label{
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+
+.sX-label-success{
+	background-color: #5cb85c;
+}
+
+.sX-label-warning{
+	background-color: #f0ad4e;
+}

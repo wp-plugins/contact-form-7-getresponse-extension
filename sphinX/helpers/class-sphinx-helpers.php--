@@ -1,0 +1,85 @@
+<?php
+/**
+ * Helper functions for development
+ *
+ * package name: sphinX
+ */
+
+// Exit if file is directly accessed
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+if( class_exists( 'Sphinx_Helpers' ) )
+		return;
+
+class Sphinx_Helpers{
+
+	var $config = array();
+
+	function __construct( $config ){
+
+		$this->config =  $config;
+
+	}
+
+	function notices( $notices = array(), $return = false ){
+
+		$plugin_class = $this->config['plugin_class'];
+
+		ob_start();
+
+		if( empty( $notices ) and isset( $GLOBALS[$plugin_class]->notices ) and !empty( $GLOBALS[$plugin_class]->notices) ){
+
+			$notices =  $GLOBALS[$plugin_class]->notices;
+
+		}
+
+		if( isset( $notices ) and !empty( $notices ) ){
+			foreach ($notices as $key => $notice) {
+				if( !empty( $notice ) ){
+
+					echo '<ul class="sphinx-notice-list sphinx-'.$key.'">';
+					foreach ($notice as $key => $note) {
+						printf( '<li class="%s">%s</li>', '', $note);
+					}
+					echo '</ul>';
+
+				}
+			}
+
+		}
+
+		$output = ob_get_contents();
+
+  		ob_end_clean();
+
+  		if( $return )
+			return $output;
+
+		echo $output;
+	}
+
+	function check_data( $key, $array = array(), $default = '' ){
+
+		return ( isset( $array[ $key ] ) ? $array[ $key ]: $default );
+
+	}
+
+	public function load_template( $template_path, $args = array() ){
+		extract( $args );
+		$base_path = $this->config['base_path'];
+
+		$locate_template = $this->config['base_dir']."/".ltrim( $template_path, '/');
+		if( locate_template( $locate_template ) ){
+			include sprintf( '%s/%s', get_stylesheet_directory(), $locate_template );
+			return;
+		}
+
+		$template_path = sprintf( '%s/%s', $base_path, $this->config['template_dir']."/".ltrim( $template_path, '/') );
+
+		if( !file_exists( $template_path ) )
+			return __( 'File not found!' );
+
+		include  $template_path ;
+	}
+
+} # END class sphinX_Helpers
