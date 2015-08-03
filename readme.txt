@@ -1,10 +1,10 @@
 === Contact Form 7 GetResponse Extension ===
-Contributors: wen-solutions
+Contributors: WEN Solutions
 Donate link: http://racase.com
 Tags: contact form 7, email, mailing list, getresponse, get response, cge, contact, form, contact form,  newsletter
 Requires at least: 3.9
 Tested up to: 4.3
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A very easy plugin to integrate GetResponse campaigns with Contact Form 7.
@@ -38,10 +38,18 @@ For more detail [Contact Form 7 GetResponse Extension page](http://racase.com/co
 == Changelog ==
 For more information, see [Releases](http://racase.com/contact-form-7-getresponse-extension).
 
+= 0.2 =
+* Fields text box changed to select box
+* Menu position issue fixed
+* Minor UI changes
+
 = 0.1 =
 * Release version
 
 == Upgrade Notice ==
+
+= 0.2 =
+User friendly back-end options and bug fixing
 
 = 0.1 =
 Initial Release version.

@@ -53,7 +53,7 @@ class Cf7_Gs_Ext_Admin_Settings {
     $args['menu_slug'] = 'cf7-gs-ext-page';
     $args['function'] = array( $this, 'menu_page_callback' );
     $args['icon_url'] = 'dashicons-id';
-    $args['position'] = 75;
+    $args['position'] = 71;
 
     global $cf7_gs_ext;
     $cf7_gs_ext->admin_menu()->add( $args );

@@ -7,7 +7,7 @@ Author: WEN Solutions
 Author URI: http://racase.com
 Text Domain: cf7-gr-ext
 Domain Path: /lang/
-Version: 0.1
+Version: 0.2
 */
 
 /*  Copyright 2013-2015 WEN Solutions (email: wensolution at gmail.com)
@@ -40,7 +40,7 @@ if( !class_exists( 'sphinx' ) )
  */
 class cf7_gs_ext extends sphinX{
 
-	public $version = '0.1';
+	public $version = '0.2';
 
 	/**
 	 * Constructor method

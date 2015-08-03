@@ -53,13 +53,20 @@ span.dashicons.dashicons-update {
   padding:0 10px 0px 10px;
 }
 
+tr.custom-field-single:first-child td:last-child{
+  padding: 0 23px;
+}
 tr.custom-field-single {
-  background-color: rgb(236, 240, 242);
- padding: 10px 0;
+  background-color: rgb(243, 243, 243);
+  padding: 10px 0;
   display: block;
   margin: 5px 0px;
-    transition: all 5s ease-in;
-      width: 97%;
+  transition: all 5s ease-in;
+  width: 97%;
+  border: 1px solid rgba(230, 230, 230, 0.78);
+}
+tr.custom-field-single label{
+  font-weight: bold;
 }
 .cf7-gs-ext-admin-form .cf7-gs-custom-fields-tbl tr.custom-field-single td input[type="text"] {
   width: 100%;

@@ -1,4 +1,75 @@
+(function ( $ ) {
+  $.fn.cf7_gr_change_select_fieldsx = function() {
+   
+      return this.each(function() {
+        var $this = $(this);
+        var dValue = $this.data('value');
+        var newvalue = $this.data('newvalue');
+        console.log( newvalue );
+        $this.find('option').each( function(){
+
+        console.log( $(this).attr('value') );
+
+          if( $(this).attr('value') == newvalue  ){
+            $(this).attr('selected','selected');
+          }
+          else if( $(this).attr('value') == dValue ){
+            $(this).attr('selected','selected');
+          }
+
+        });
+      });
+   
+  };
+}( jQuery ));
+
+// Define string match function
+RegExp.prototype.execAll = function(string) {
+var match = null;
+var matches = new Array();
+while (match = this.exec(string)) {
+        var matchArray = [];
+        for (i in match) {
+            if (parseInt(i) == i) {
+                matchArray.push(match[i]);
+            }
+        }
+        matches.push(matchArray);
+    }
+    return matches;
+}
+
+function cf7_gr_change_select_fields(){
+
+  var str = jQuery('textarea#wpcf7-form').val();
+  var res = /[[a-z\*]+\s([a-z0-9\*-_]+)+(?:.*\])/g.execAll(str);
+  var sHtml = "<option value=''>Select Field</option>";
+  jQuery.each( res, function( index, val ){
+      var name = val[1];
+      sHtml+="<option value='["+name+"]'>"+name+"</option>";
+  });
+  jQuery('.field-names').html( sHtml )
+  jQuery('.field-names').cf7_gr_change_select_fieldsx();
+}
+
+
 jQuery( function( $ ){
+
+
+      cf7_gr_change_select_fields( );
+
+      $('textarea#wpcf7-form').focusout( function(){
+
+        cf7_gr_change_select_fields( );
+          
+      });
+
+      $('body').on( 'change','.field-names', function(){
+
+        $(this).data( 'newvalue', $(this).val());
+          
+      });
+
 
       // Add now custom field on button click
       $( '#cf7-gs-add-custom-field' ).click( function(){
@@ -39,12 +110,12 @@ jQuery( function( $ ){
       });
 
       // remvoe Custom Fields
-      $( 'body' ).on( 'click', 'input.remove-custom-field', function(){
+      $( 'body' ).on( 'click', 'a.remove-custom-field', function(){
 
-        if( confirm( 'Are you sure to delte?' ) ){
+        if( confirm( 'Are you sure to delete?' ) ){
 
           var cfid = $(this).data('cfid');
-          $( "tr[data-cfid="+cfid+"]").fadeOut( 'slow', function(){
+          $( "tr[data-cfid="+cfid+"]").slideUp( 'slow', function(){
             $(this).remove();
           });
 

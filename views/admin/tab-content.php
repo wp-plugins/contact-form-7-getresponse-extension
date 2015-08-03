@@ -10,7 +10,10 @@
             <a href="#" class="cf7-help-icon"><span class="dashicons dashicons-info"></span></a>
         	</th>
         	<td>
-        		<input type="text" id="cf7-gs-name" name="cf7-gs[name]" class="large-text wide" size="70" placeholder="[your-name]" value="<?php echo (isset ($cf7_gs['name'] ) ) ? esc_attr( $cf7_gs['name'] ) : ''; ?>" />
+        		<!-- <input type="text" id="cf7-gs-name" name="cf7-gs[name]" class="large-text wide" size="70" placeholder="[your-name]" value="<?php echo (isset ($cf7_gs['name'] ) ) ? esc_attr( $cf7_gs['name'] ) : ''; ?>" /> -->
+            <select class="field-names large-select" id="cf7-gs-name" name="cf7-gs[name]" data-value="<?php echo (isset ($cf7_gs['name'] ) ) ? esc_attr( $cf7_gs['name'] ) : ''; ?>">
+              
+            </select>
             <span class="cf7-gs-red-text">*</span>
         	</td>
       	</tr>
@@ -21,7 +24,12 @@
             <a href="#" class="cf7-help-icon"><span class="dashicons dashicons-info"></span></a>
         	</th>
         	<td>
-        		<input type="text" id="cf7-gs-email" name="cf7-gs[email]" class="large-text wide" size="70" placeholder="[your-email]" value="<?php echo (isset ( $cf7_gs['email'] ) ) ? esc_attr( $cf7_gs['email'] ) : ''; ?>" />
+        		<!-- <input type="text" id="cf7-gs-email" name="cf7-gs[email]" class="large-text wide" size="70" placeholder="[your-email]" value="<?php echo (isset ( $cf7_gs['email'] ) ) ? esc_attr( $cf7_gs['email'] ) : ''; ?>" /> -->
+            
+            <select class="field-names large-select" id="cf7-gs-email" name="cf7-gs[email]" data-value="<?php echo (isset ($cf7_gs['email'] ) ) ? esc_attr( $cf7_gs['email'] ) : ''; ?>">
+              
+            </select>
+
             <span class="cf7-gs-red-text">*</span>
         	</td>
       	</tr>
@@ -32,7 +40,11 @@
             <a href="#" class="cf7-help-icon"><span class="dashicons dashicons-info"></span></a>
         	</th>
         	<td>
-        		<input type="text" id="cf7-gs-accept" name="cf7-gs[accept]" class="large-text wide" size="70" placeholder="[opt-in]" value="<?php echo (isset($cf7_gs['accept'])) ? $cf7_gs['accept'] : '';?>" />
+        		<!-- <input type="text" id="cf7-gs-accept" name="cf7-gs[accept]" class="large-text wide" size="70" placeholder="[opt-in]" value="<?php echo (isset($cf7_gs['accept'])) ? $cf7_gs['accept'] : '';?>" /> -->
+            <select class="field-names large-select"  id="cf7-gs-accept" name="cf7-gs[accept]" data-value="<?php echo (isset ($cf7_gs['accept'] ) ) ? esc_attr( $cf7_gs['accept'] ) : ''; ?>">
+              
+            </select>
+
         	</td>
       	</tr>
 
@@ -98,7 +110,12 @@
 
                   <td class="">
                     <label for="cf7-gs-custom-value<?php echo $i; ?>"><?php echo esc_html( __( 'Contact Form Value', 'cf7-gr-ext' ) ); ?></label><br />
-                    <input type="text" id="cf7-gs-custom-value<?php echo $i; ?>" name="cf7-gs[custom_value][<?php echo $i; ?>]" class="large-text" size="20" placeholder="[your-example-value]" value="<?php echo (isset( $cf7_gs['custom_value'][$i]) ) ?  esc_attr( $cf7_gs['custom_value'][$i] ) : '' ;  ?>" />
+                    <!-- <input type="text" id="cf7-gs-custom-value<?php echo $i; ?>" name="cf7-gs[custom_value][<?php echo $i; ?>]" class="large-text" size="20" placeholder="[your-example-value]" value="<?php echo (isset( $cf7_gs['custom_value'][$i]) ) ?  esc_attr( $cf7_gs['custom_value'][$i] ) : '' ;  ?>" /> -->
+
+                    <select class="field-names large-select"  id="cf7-gs-custom-value<?php echo $i; ?>" name="cf7-gs[custom_value][<?php echo $i; ?>]" data-value="<?php echo (isset( $cf7_gs['custom_value'][$i]) ) ?  esc_attr( $cf7_gs['custom_value'][$i] ) : '' ;  ?>">
+              
+                    </select>
+
                   </td>
 
 
@@ -111,9 +128,14 @@
                     <?php
                     if( 2 <= $i ){
                       ?>
-
-                      <input data-cfid="<?php echo $i; ?>" type="button" name="delete-custom-field" id="delete-custom-field" class="button delete remove-custom-field" value="X">
+                      <a  data-cfid="<?php echo $i; ?>" class="dashicons dashicons-dismiss  delete remove-custom-field" style="
+    color: red;
+"  id="delete-custom-field" href="javascript:void(0);"></a>
+                      <!-- <input data-cfid="<?php echo $i; ?>" type="button" name="delete-custom-field" id="delete-custom-field" class="button delete remove-custom-field" value="X"> -->
                       <?php
+                    }
+                    else{
+                      echo '&nbsp;';
                     }
                     ?>
                   </td>
@@ -126,7 +148,10 @@
 
                     <td class="">
                       <label for="{{CFV_FIELD_ID}}"><?php echo esc_html( __( 'Contact Form Value', 'cf7-gr-ext' ) ); ?></label><br />
-                      <input type="text" id="{{CFV_FIELD_ID}}" name="{{CFV_FIELD_NAME}}" class="large-text" size="20" placeholder="[your-example-value]" value="" />
+                      <!-- <input type="text" id="{{CFV_FIELD_ID}}" name="{{CFV_FIELD_NAME}}" class="large-text" size="20" placeholder="[your-example-value]" value="" /> -->
+                      <select class="field-names large-select"  id="{{CFV_FIELD_ID}}" name="{{CFV_FIELD_NAME}}" data-value="">
+              
+                    </select>
                     </td>
 
 
@@ -136,7 +161,10 @@
                     </td>
 
                     <td><br />
-                      <input data-cfid="{{ID}}" type="button" name="delete-custom-field" id="delete-custom-field" class="button delete remove-custom-field" value="X">
+                    <a  data-cfid="{{ID}}" class="dashicons dashicons-dismiss delete remove-custom-field" style="
+    color: red;
+"  id="delete-custom-field" href="javascript:void(0);"></a>
+                      <!-- <input data-cfid="{{ID}}" type="button" name="delete-custom-field" id="delete-custom-field" class="button delete remove-custom-field" value="X"> -->
                     </td>
 
                   </tr>
